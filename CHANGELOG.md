@@ -1,5 +1,75 @@
 # CHANGELOG
 
+## v4.12.2 (2024-10-01)
+
+### Fix
+
+* fix: raise GitlabHeadError in `project.files.head()` method (#3006)
+
+When an error occurs, raise `GitlabHeadError` in
+`project.files.head()` method.
+
+Closes: #3004 ([`9bf26df`](https://github.com/python-gitlab/python-gitlab/commit/9bf26df9d1535ca2881c43706a337a972b737fa0))
+
+## v4.12.1 (2024-09-30)
+
+### Chore
+
+* chore(deps): update all non-major dependencies (#3000)
+
+Co-authored-by: renovate[bot] &lt;29139614+renovate[bot]@users.noreply.github.com&gt; ([`d3da326`](https://github.com/python-gitlab/python-gitlab/commit/d3da326828274ed0c5f76b01a068519d360995c8))
+
+* chore(deps): update gitlab/gitlab-ee docker tag to v17.4.1-ee.0 ([`64eed5d`](https://github.com/python-gitlab/python-gitlab/commit/64eed5d388252135a42a252b9100ffc75d9fb0ea))
+
+### Fix
+
+* fix(ci): do not rely on GitLab.com runner arch variables (#3003) ([`c848d12`](https://github.com/python-gitlab/python-gitlab/commit/c848d12252763c32fc2b1c807e7d9887f391a761))
+
+* fix(files): correctly raise GitlabGetError in get method ([`190ec89`](https://github.com/python-gitlab/python-gitlab/commit/190ec89bea12d7eec719a6ea4d15706cfdacd159))
+
+## v4.12.0 (2024-09-28)
+
+### Chore
+
+* chore(deps): update all non-major dependencies ([`ae132e7`](https://github.com/python-gitlab/python-gitlab/commit/ae132e7a1efef6b0ae2f2a7d335668784648e3c7))
+
+* chore: update pylint to 3.3.1 and resolve issues (#2997)
+
+pylint 3.3.1 appears to have added &#34;too-many-positional-arguments&#34;
+check with a value of 5.
+
+I don&#39;t disagree with this, but we have many functions which exceed
+this value. We might think about converting some of positional
+arguments over to keyword arguments in the future. But that is for
+another time.
+
+For now disable the check across the project. ([`a0729b8`](https://github.com/python-gitlab/python-gitlab/commit/a0729b83e63bcd74f522bf57a87a5800b1cf19d1))
+
+* chore(deps): update dependency types-setuptools to v75 ([`a2ab54c`](https://github.com/python-gitlab/python-gitlab/commit/a2ab54ceb40eca1e6e71f7779a418591426b2b2c))
+
+* chore(deps): update gitlab/gitlab-ee docker tag to v17.4.0-ee.0 ([`8601808`](https://github.com/python-gitlab/python-gitlab/commit/860180862d952ed25cf95df1a4f825664f7e1c4b))
+
+* chore(deps): update all non-major dependencies ([`10ee58a`](https://github.com/python-gitlab/python-gitlab/commit/10ee58a01fdc8071f29ae0095d9ea8a4424fa728))
+
+* chore(deps): update gitlab/gitlab-ee docker tag to v17.3.2-ee.0 ([`5cd1ab2`](https://github.com/python-gitlab/python-gitlab/commit/5cd1ab202e3e7b64d626d2c4e62b1662a4285015))
+
+### Feature
+
+* feat(build): build multi-arch images (#2987) ([`29f617d`](https://github.com/python-gitlab/python-gitlab/commit/29f617d7d368636791baf703ecdbd22583356674))
+
+* feat: introduce related_issues to merge requests (#2996) ([`174d992`](https://github.com/python-gitlab/python-gitlab/commit/174d992e49f1e5171fee8893a1713f30324bbf97))
+
+### Fix
+
+* fix(api): head requests for projectfilemanager (#2977)
+
+* fix(api): head requests for projectfilemanager
+
+---------
+
+Co-authored-by: Patrick Evans &lt;patrick.evans@gehealthcare.com&gt;
+Co-authored-by: Nejc Habjan &lt;hab.nejc@gmail.com&gt; ([`96a18b0`](https://github.com/python-gitlab/python-gitlab/commit/96a18b065dac4ce612a128f03e2fc6d1b4ccd69e))
+
 ## v4.11.1 (2024-09-13)
 
 ### Fix
