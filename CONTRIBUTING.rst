@@ -9,6 +9,42 @@ You can contribute to the project in multiple ways:
 * Add unit and functional tests
 * Everything else you can think of
 
+Issue Management and Our Approach to Contributions
+--------------------------------------------------
+
+We value every contribution and bug report. However, as an open-source project
+with limited maintainer resources, we rely heavily on the community to help us
+move forward.
+
+**Our Policy on Inactive Issues:**
+
+To keep our issue tracker manageable and focused on actionable items, we have
+the following approach:
+
+* **We encourage reporters to propose solutions:** If you report an issue, we
+  strongly encourage you to also think about how it might be fixed and try to
+  implement that fix.
+* **Community interest is key:** Issues that garner interest from the community
+  (e.g., multiple users confirming, discussions on solutions, offers to help)
+  are more likely to be addressed.
+* **Closing inactive issues:** If an issue report doesn't receive a proposed
+  fix from the original reporter or anyone else in the community, and there's
+  no active discussion or indication that someone is willing to work on it
+  after a reasonable period, it may be closed.
+
+  * When closing such an issue, we will typically leave a comment explaining
+    that it's being closed due to inactivity and a lack of a proposed fix.
+
+* **Reopening issues:** This doesn't mean the issue isn't valid. If you (or
+  someone else) are interested in working on a fix for a closed issue, please
+  comment on the issue. We are more than happy to reopen it and discuss your
+  proposed pull request or solution. We greatly appreciate it when community
+  members take ownership of fixing issues they care about.
+
+We believe this approach helps us focus our efforts effectively and empowers
+the community to contribute directly to the areas they are most passionate
+about.
+
 Development workflow
 --------------------
 
@@ -80,6 +116,9 @@ You need to install ``tox`` (``pip3 install tox``) to run tests and lint checks 
 
    # build the documentation - the result will be generated in build/sphinx/html/:
    tox -e docs
+
+   # build and serve the documentation site locally for validating changes
+   tox -e docs-serve
 
    # List all available tox environments
    tox list
@@ -154,6 +193,32 @@ To cleanup the environment delete the container:
 
    docker rm -f gitlab-test
    docker rm -f gitlab-runner-test
+
+Pass options to ``pytest``
+--------------------------
+
+Options to ``pytest`` can be passed by adding them after ``--`` when running ``tox``:
+
+.. code-block:: bash
+
+   tox -e api_func_v4 -- <pytest options>.
+
+For example, you can use this to run a specific test. Running all tests can be time-consuming,
+so this allows you to focus on just the tests relevant to your changes. You can do this by passing
+the ``-k`` flag to ``pytest`` and setting a relevant expression to select the tests to run. For example:
+
+.. code-block:: bash
+
+   # Run all API functional tests from the ``test_projects.py`` file:
+   tox -e api_func_v4 -- --keep-containers -k test_projects.py
+
+   # Run only the ``test_get_project`` test method from the ``test_projects.py`` file:
+   tox -e api_func_v4 -- --keep-containers -k "test_projects.py and test_create_project"
+
+   # The above will select all test methods start with ``test_create_project`` from the ``test_projects.py`` file.
+   # To select only the ``test_create_project`` method, you can exclude other methods by using the ``not`` operator:
+   tox -e api_func_v4 -- --keep-containers -k "test_projects.py and test_create_project and not test_create_project_"
+
 
 Rerunning failed CI workflows
 -----------------------------

@@ -17,14 +17,14 @@ Reference
   + :class:`gitlab.v4.objects.ProjectClusterAgentManager`
   + :attr:`gitlab.v4.objects.Project.cluster_agents`
 
-* GitLab API: https://docs.gitlab.com/ee/api/cluster_agents.html
+* GitLab API: https://docs.gitlab.com/api/cluster_agents
 
 Examples
 --------
 
 List cluster agents for a project::
 
-    cluster_agents = project.cluster_agents.list()
+    cluster_agents = project.cluster_agents.list(get_all=True)
 
 Register a cluster agent with a project::
 

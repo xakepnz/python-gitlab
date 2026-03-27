@@ -10,7 +10,7 @@ variables to projects and groups, to modify pipeline/job scripts behavior.
     Please always follow GitLab's `rules for CI/CD variables`_, especially for values
     in masked variables. If you do not, your variables may silently fail to save.
 
-.. _rules for CI/CD variables: https://docs.gitlab.com/ee/ci/variables/#add-a-cicd-variable-to-a-project
+.. _rules for CI/CD variables: https://docs.gitlab.com/ci/variables/#add-a-cicd-variable-to-a-project
 
 Instance-level variables
 ========================
@@ -28,14 +28,14 @@ Reference
 
 * GitLab API
 
-  + https://docs.gitlab.com/ce/api/instance_level_ci_variables.html
+  + https://docs.gitlab.com/api/instance_level_ci_variables
 
 Examples
 --------
 
 List all instance variables::
 
-    variables = gl.variables.list()
+    variables = gl.variables.list(get_all=True)
 
 Get an instance variable by key::
 
@@ -73,17 +73,17 @@ Reference
 
 * GitLab API
 
-  + https://docs.gitlab.com/ce/api/instance_level_ci_variables.html
-  + https://docs.gitlab.com/ce/api/project_level_variables.html
-  + https://docs.gitlab.com/ce/api/group_level_variables.html
+  + https://docs.gitlab.com/api/instance_level_ci_variables
+  + https://docs.gitlab.com/api/project_level_variables
+  + https://docs.gitlab.com/api/group_level_variables
 
 Examples
 --------
 
 List variables::
 
-    p_variables = project.variables.list()
-    g_variables = group.variables.list()
+    p_variables = project.variables.list(get_all=True)
+    g_variables = group.variables.list(get_all=True)
 
 Get a variable::
 

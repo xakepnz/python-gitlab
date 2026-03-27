@@ -13,14 +13,14 @@ References
   + :class:`gitlab.v4.objects.ProjectPackageProtectionRuleManager`
   + :attr:`gitlab.v4.objects.Project.package_protection_rules`
 
-* GitLab API: https://docs.gitlab.com/ee/api/project_packages_protection_rules.html
+* GitLab API: https://docs.gitlab.com/api/project_packages_protection_rules
 
 Examples
 --------
 
 List the package protection rules for a project::
 
-    package_rules = project.package_protection_rules.list()
+    package_rules = project.package_protection_rules.list(get_all=True)
 
 Create a package protection rule::
 

@@ -11,14 +11,14 @@ Reference
   + :class:`gitlab.v4.objects.SnipptManager`
   + :attr:`gitlab.Gitlab.snippets`
 
-* GitLab API: https://docs.gitlab.com/ce/api/snippets.html
+* GitLab API: https://docs.gitlab.com/api/snippets
 
 Examples
 ========
 
 List snippets owned by the current user::
 
-    snippets = gl.snippets.list()
+    snippets = gl.snippets.list(get_all=True)
 
 List the public snippets::
 
@@ -26,7 +26,7 @@ List the public snippets::
 
 List all snippets::
 
-    all_snippets = gl.snippets.list_all()
+    all_snippets = gl.snippets.list_all(get_all=True)
 
 .. warning::
 
